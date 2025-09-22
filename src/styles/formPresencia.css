@@ -1,0 +1,54 @@
+/* formPresencia.css */
+.fp-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1060;
+    background: rgba(0, 0, 0, 0.32);
+    padding: 1.25rem;
+    pointer-events: auto;
+}
+
+.fp-card {
+    width: min(520px, 98%);
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(7, 34, 68, 0.12);
+}
+
+/* pequeño toque visual */
+.fp-card h5 {
+    font-weight: 600;
+}
+
+/* si el usuario prefiere menos movimiento, respetamos */
+@media (prefers-reduced-motion: reduce) {
+    .fp-modal {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* responsive */
+@media (max-width: 575.98px) {
+    .fp-card {
+        padding: 1rem;
+    }
+
+    .fp-modal {
+        padding: 0.75rem;
+    }
+
+    .fp-card .btn {
+        width: 100%;
+    }
+
+    .d-flex.gap-2.justify-content-end {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0.6rem;
+        align-items: stretch;
+    }
+}

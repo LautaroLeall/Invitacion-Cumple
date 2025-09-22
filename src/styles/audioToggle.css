@@ -1,0 +1,50 @@
+.audio-toggle {
+    position: fixed;
+    top: 10px;
+    left: 25px;
+    z-index: 999;
+    background: linear-gradient(135deg, #3acfd5, #3a4ed5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 15px rgba(58, 77, 213, 0.6);
+    transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(58, 207, 213, 0.9);
+}
+
+.audio-toggle.playing {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    animation: pulse 1.5s infinite;
+}
+
+.audio-toggle.muted {
+    background: linear-gradient(135deg, #d53369, #daae51);
+    opacity: 0.85;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(37, 117, 252, 0.8);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+    }
+}
