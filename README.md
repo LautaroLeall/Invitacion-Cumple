@@ -1,13 +1,80 @@
-# React + Vite
+# 🎉 Invitación Olivia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto web interactivo desarrollado en **React + Vite**, pensado como una invitación animada y dinámica.  
+Incluye animaciones con **GSAP**, efectos con **Framer Motion** y control de audio para una experiencia inmersiva.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías principales
 
-## Expanding the ESLint configuration
+```
+- ⚛️ ReactJS (Vite)
+- 🎯 HTML5 + CSS3
+- ⚙️ JavaScript (ES6+)
+- 💅 Bootstrap 5
+- ✨ GSAP
+- 🎬 Framer Motion
+- 🎨 Lottie React
+- 📡 React Hooks: useState, useEffect
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Invitacion-Cumple
+---
+
+## 📂 Estructura del proyecto
+
+```
+invitacion-olivia/
+│── public/                     # Archivos estáticos
+│── src/
+│ ├── assets/                   # Imágenes reutilizables
+│ ├── components/               # Componentes principales
+│ │ ├── AudioToggle.jsx
+│ │ ├── Background.jsx
+│ │ ├── FormPresencia.jsx
+│ │ └── InvitationCard.jsx
+│ ├── pages/                    # Página
+│ │ └── Home.jsx
+│ ├── styles/                   # Archivos CSS
+│ │ ├── audioToggle.css
+│ │ ├── background.css
+│ │ ├── formPresencia.css
+│ │ └── invitationCard.css
+│ ├── video/                    # Videos
+│ └── sound/                    # Sonidos
+│── App.jsx
+│── main.jsx
+│── vite.config.js
+│── eslint.config.js
+│── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Instalación y uso
+
+[![Ver Tajerta de Cumple](https://img.shields.io/badge/Ver%20Tarjeta%20de%20Cumple-%232196F3?style=for-the-badge&logo=netlify&logoColor=white)](https://tarjeta-cumple-olivia.netlify.app/)
+
+```bash
+1. Clonar el repositorio:
+
+git clone https://github.com/tuusuario/invitacion-olivia.git
+```
+
+```bash
+2. Ejecutar el proyecto:
+
+cd invitacion-olivia
+```
+
+```bash
+3. Instalar dependencias:
+
+npm i
+```
+
+```bash
+4. Iniciar el servidor de desarrollo:
+
+ npm run dev
+```
