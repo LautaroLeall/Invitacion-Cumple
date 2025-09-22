@@ -1,187 +1,74 @@
-/* background.css - video + overlays */
-/* Comentarios y ajustes para que el fondo sea liviano y responsivo. */
-
+/* src/styles/background.css */
 /* Contenedor absoluto en toda la pantalla */
 .background-root {
     position: fixed;
     inset: 0;
-    z-index: -4;
+    z-index: -100;
+    /* asegúrate de que el contenido principal tenga z-index mayor */
     overflow: hidden;
     pointer-events: none;
-    /* evita que interfiera con la UI */
+    /* no interfiere con la UI */
 }
 
-/* VIDEO ocupa todo, con object-fit cover */
+/* El video ocupa todo, con object-fit cover para no deformar */
 .bg-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -6;
+    z-index: -101;
     filter: saturate(1.05) contrast(1.02) brightness(0.98);
     transform-origin: center;
-    /* small scale para suavizar bordes en veces de crop */
     transform: scale(1.02);
 }
 
-/* Gradiente encima del video para corregir tono y dar profundidad */
-.sea-gradient {
-    position: absolute;
-    inset: 0;
-    z-index: -5;
-    background: linear-gradient(180deg,
-            rgba(170, 220, 255, 0.10) 0%,
-            rgba(60, 120, 160, 0.08) 40%,
-            rgba(8, 36, 56, 0.30) 100%);
-    pointer-events: none;
-}
-
-/* Textura sutil (opcional). Si no tenés asset, pon background: none; */
-.sea-texture {
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background-image: url('/assets/sea-texture.png');
-    background-repeat: repeat;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-}
-
-/* Waves: formas suaves borrosas para dar volumen */
-.waves {
-    position: absolute;
-    left: -12%;
-    right: -12%;
-    bottom: -12%;
-    height: 46vh;
-    z-index: -3;
-    pointer-events: none;
-}
-
-.wave {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    border-radius: 50%;
-    opacity: 0.45;
-    filter: blur(22px);
-}
-
-/* distintas olas con tamaños y colores para profundidad */
-.wave1 {
-    width: 1400px;
-    height: 320px;
-    background: linear-gradient(90deg, rgba(140, 200, 230, 0.6), rgba(80, 160, 200, 0.6));
-    bottom: -24%;
-}
-
-.wave2 {
-    width: 1600px;
-    height: 420px;
-    background: linear-gradient(90deg, rgba(90, 160, 190, 0.5), rgba(50, 120, 160, 0.45));
-    bottom: -6%;
-}
-
-.wave3 {
-    width: 1100px;
-    height: 220px;
-    background: linear-gradient(90deg, rgba(110, 200, 220, 0.28), rgba(60, 150, 180, 0.22));
-    bottom: -34%;
-}
-
-/* Burbujas - contenedor ocupa todo el alto para que suban libremente */
-.bubbles {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 4%;
-    top: 0;
-    z-index: -2;
-    pointer-events: none;
-}
-
-/* burbuja base: circular, brillante y con sombra sutil */
-.bubble {
-    position: absolute;
-    bottom: 8%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%,
-            rgba(255, 255, 255, 0.95),
-            rgba(255, 255, 255, 0.6) 30%,
-            rgba(255, 255, 255, 0.12) 70%);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    will-change: transform, opacity;
-}
-
-/* lottie wrapper: caustics o partículas (opcional) */
-.lottie-caustics {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.9;
-}
-
-/* overlay oscuro para mejorar lectura del contenido */
+/* Overlay sutil encima del video para mejorar lectura */
 .sea-overlay {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: -100;
     background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0) 20%,
-            rgba(0, 0, 0, 0.06) 60%,
-            rgba(0, 0, 0, 0.14) 100%);
+            rgba(0, 0, 0, 0) 10%,
+            rgba(0, 0, 0, 0.04) 45%,
+            rgba(0, 0, 0, 0.12) 100%);
     pointer-events: none;
 }
 
-/* Prefers reduced motion: desactivar animaciones que consumen recursos */
+/* Lottie (si lo usas) */
+.lottie-caustics {
+    position: absolute;
+    inset: 0;
+    z-index: -99;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+/* Prefers-reduced-motion: desactivar transform y animaciones pesadas */
 @media (prefers-reduced-motion: reduce) {
     .bg-video {
-        animation: none;
-        transition: none;
         transform: none;
+        transition: none;
+        animation: none;
     }
 
-    .bubble,
-    .wave,
     .lottie-caustics {
         animation: none !important;
-        transition: none !important;
-        transform: none !important;
     }
 }
 
-/* Responsive: en pantallas pequeñas hacemos el fondo menos pesado visualmente */
+/* Responsive */
 @media (max-width: 767.98px) {
     .bg-video {
         transform: none;
+        /* para móviles no escalar */
         filter: saturate(1) contrast(1) brightness(0.98);
     }
 
-    .sea-texture {
-        opacity: 0.03;
-    }
-
-    .wave {
-        filter: blur(18px);
-        opacity: 0.38;
-    }
-
-    .wave1 {
-        height: 260px;
-        bottom: -32%;
-    }
-
-    .wave2 {
-        height: 340px;
-        bottom: -10%;
-    }
-
-    .wave3 {
-        height: 180px;
-        bottom: -40%;
+    .sea-overlay {
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0) 10%,
+                rgba(0, 0, 0, 0.06) 45%,
+                rgba(0, 0, 0, 0.14) 100%);
     }
 }
