@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <>
-            <Background videoSrc="/assets/sea-loop.webm" lottieSrc="/assets/caustics.json" bubbleCount={12} />
+            <Background videoSrc="/fondo-del-mar.mp4" lottieSrc={null} bubbleCount={12} />
             <AudioToggle src="Bajo el mar  La Sirenita.mp3" initialMuted={true} />
             <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', padding: '2rem' }}>
                 <InvitationCard onOpenForm={handleOpenForm} />

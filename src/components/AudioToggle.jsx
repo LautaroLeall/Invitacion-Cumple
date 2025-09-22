@@ -4,7 +4,7 @@ import { MdMusicNote, MdMusicOff } from "react-icons/md";
 import "../styles/audioToggle.css";
 
 export default function AudioToggle({ src }) {
-    const [muted, setMuted] = useState(true);
+    const [muted, setMuted] = useState(false);
     const audioRef = useRef(null);
 
     useEffect(() => {
@@ -12,6 +12,11 @@ export default function AudioToggle({ src }) {
         audio.loop = true;
         audio.preload = "auto";
         audioRef.current = audio;
+
+        // Intentar reproducir de una
+        audio
+            .play()
+            .catch(() => console.warn("⚠️ Autoplay bloqueado hasta interacción del usuario"));
 
         return () => {
             audio.pause();
@@ -26,7 +31,7 @@ export default function AudioToggle({ src }) {
             if (!muted) {
                 audioRef.current
                     .play()
-                    .catch(() => console.warn("El navegador bloqueó autoplay"));
+                    .catch(() => console.warn("⚠️ Autoplay bloqueado hasta interacción del usuario"));
             } else {
                 audioRef.current.pause();
             }
