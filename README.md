@@ -23,7 +23,7 @@ Incluye animaciones con **GSAP**, efectos con **Framer Motion** y control de aud
 ## 📂 Estructura del proyecto
 
 ```
-invitacion-olivia/
+Invitacion-Cumple_Olivia/
 │── public/                     # Archivos estáticos
 │── src/
 │ ├── assets/                   # Imágenes reutilizables
@@ -53,18 +53,16 @@ invitacion-olivia/
 
 ## ⚙️ Instalación y uso
 
-[![Ver Tajerta de Cumple](https://img.shields.io/badge/Ver%20Tarjeta%20de%20Cumple-%232196F3?style=for-the-badge&logo=netlify&logoColor=white)](https://tarjeta-cumple-olivia.netlify.app/)
-
 ```bash
 1. Clonar el repositorio:
 
-git clone https://github.com/tuusuario/invitacion-olivia.git
+git clone https://github.com/LautaroLeall/Invitacion-Cumple_Olivia.git
 ```
 
 ```bash
 2. Ejecutar el proyecto:
 
-cd invitacion-olivia
+cd Invitacion-Cumple_Olivia
 ```
 
 ```bash
@@ -76,5 +74,5 @@ npm i
 ```bash
 4. Iniciar el servidor de desarrollo:
 
- npm run dev
+npm run dev
 ```
